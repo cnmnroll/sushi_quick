@@ -1,0 +1,53 @@
+<div id="orders_area">
+	<% for order in orders do%>
+		<div class="card">
+			<table class="table_style">
+				<thead>
+					<tr><th>配達先</th><th>注文日付</th><th>ステータス</th><th>操作</th><th>合計</th></tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><%= order.user_address %></td>
+						<td><%= Order.change_time order.created_at %></td>
+						<td><%= Order.delivery_status order.delivery_status %></td>
+						<td>
+							<% if order.delivery_status == 1 %>
+								<%= button_to "一括キャンセル", delete_order_user_order_path(order), method: :delete %>
+							<% else %>
+								<%= button_to "一括キャンセル", delete_order_user_order_path(order), method: :delete, disabled: true %>
+							<% end %>
+						</td>
+						<td><%= order.total %></td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="table_style">
+				<thead>
+					<tr><th>商品名</th><th>数量</th><th>操作</th><th>小計</th></tr>
+				</thead>
+				<tbody>
+					<% for order_detail in order.order_details do %>
+						<tr>
+							<td><%= order_detail.merchandise.merchandise_name %></td>
+							<td>
+								<%= form_tag user_order_order_detail_path(order, order_detail), method: :patch, remote: true do |form| %>
+									<%= number_field_tag :quantity, order_detail.quantity, min: 1, max: 10, step: 1 %>個
+									<%= hidden_field_tag :ajax_hundler, 'edit_quantity' %>
+									<%= submit_tag "変更"%>
+								<% end %>
+							</td>
+							<td>
+								<% if order.delivery_status == 1 %>
+									<%= button_to "キャンセル", delete_detail_user_order_order_detail_path(order, order_detail), method: :delete %>
+								<% else %>
+									<%= button_to "キャンセル", delete_detail_user_order_order_detail_path(order, order_detail), method: :delete, disabled: true %>
+								<% end %>
+							</td>
+							<td><%= order_detail.sub_total %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	<% end %>
+</div>

@@ -1,0 +1,37 @@
+<% for order in orders do%>
+<div class="card">
+
+	<table class="table_style">
+		<thead>
+			<tr><th>注文者</th><th>配達先</th><th>ステータス</th><th>注文時間</th></tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= order.user.user_name %>
+				<td><%= order.user_address %></td>
+				<td>
+					<%= form_for order, url: admin_deliveryman_order_path(order), remote: true do |form| %>
+						<%= form.hidden_field :delivery_status, value: 2 %>
+						<%= form.submit "配送" %>
+					<% end %>
+				</td>
+				<td><%= Order.change_time order.created_at %></td>
+			</tr>
+		</tbody>
+	</table>
+		<table class="table_style">
+		<thead>
+			<tr><th>商品名</th><th>数量</th></tr>
+		</thead>
+		<tbody>
+			<% for order_detail in order.order_details do %>
+				<tr>
+					<td><%= order_detail.merchandise.merchandise_name %></td>
+					<td><%= order_detail.quantity %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+	</div>
+<% end %>
+<%= will_paginate @orders %>

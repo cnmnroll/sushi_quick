@@ -1,0 +1,83 @@
+.order {
+	margin-bottom: 1%;
+}
+
+.price {
+	color: red;
+}
+
+.discount {
+	color: #ffaa00;
+}
+
+#total {
+	padding: 0;
+	margin: 2%;
+}
+
+#total p{
+/*	padding: 5px;
+	margin: 2%;*/
+}
+/*
+#total tr td {
+	width: 100%;
+}*/
+.form {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.merchandise_card .form {
+	display: inline;
+}
+
+.button {
+  background: #89CCEA;
+
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;  
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.button:hover {
+	background-color: rgba(89, 180, 220, 0.5);
+	/*background-color: rgba(0,0,255,0.5);*/
+}
+
+.button_admin {
+  background: #ffCC22;
+
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;  
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.button_admin:hover {
+	background-color: rgba(255, 180, 20, 0.5);
+	/*background-color: rgba(0,0,255,0.5);*/
+}
+
+
+.max {
+	width: 100%;
+}
+
+.button_to {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}

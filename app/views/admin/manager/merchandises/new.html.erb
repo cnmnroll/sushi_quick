@@ -1,0 +1,46 @@
+<%= render 'shared/errors', obj: @merchandise %>
+<%= form_for @merchandise, url:	admin_manager_merchandises_path do |form| %>
+	<table class="table_style">
+		<tr>
+			<th><%= form.label :merchandise_name, "商品名" %></th>
+			<td><%= form.text_field :merchandise_name %></td>
+		</tr>
+		<tr>
+			<th><%= form.label :price, "値段" %></th>
+			<td><%= form.number_field :price, min: 0 %></td>
+		</tr>
+		<tr>
+			<th><%= form.label :stock, "在庫" %></th>
+			<td><%= form.number_field :stock, min: 0 %></td>
+		</tr>
+		<tr>
+			<th><%= form.label :category, "カテゴリ" %></th>
+			<td><%= collection_select :merchandise, :category, Category.all, :id, :category_name %></td>
+		</tr>
+		<tr>
+			<th><%= form.label :sub_category, "サブカテゴリ" %></th>
+			<td><%= collection_select :merchandise, :sub_category, SubCategory.all, :id, :sub_category_name %></td>
+		</tr>
+		<tr>
+			<th><%= form.label :type_status, "種類" %></th>
+			<td><%= collection_select :merchandise, :type_status, Type.all, :id, :type_name %></td>
+		</tr>
+		<tr>
+			<th><%= form.label :display, '表示' %></th>
+			<td><%= form.select :display, [['◯', true], ['☓', false]] %></td>
+		</tr>
+		<tr>
+			<th><%= form.label :uploaded_image, "商品画像" %></th>
+			<td>
+				<%= form.file_field :uploaded_image %>
+				<div id="uploaded_image_confirm">
+				</div>
+			</td>
+
+		</tr>
+	</table>
+	<div class="button_area">
+	<%= form.submit "追加", class: 'button' %>
+</div>
+<% end %>
+

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sushi3</title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+		<meta http-equiv="refresh" content="5", data-turbolinks-track>
+	</head>
+	<body>
+		<div id="page">
+			<header id="pageHead">
+				<%= render "shared/header" %>
+			</header>
+			<div id="pageBody">
+				<%= yield %>
+			</div>
+
+			<div id="pageFoot">
+				<%= render "shared/footer" %>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<div id="pageBodyMain">
+	<div class="dliveryAdress">
+		<table class="table_style">
+			<thead>
+				<tr>
+					<th>住所</th><th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><%= @user.shopping_cart.address %></td>
+					<td><%= link_to "変更", edit_address_user_orders_path, method: :get %></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div id="shoppingCartList">
+		<%= render "orders/shopping_cart_list", shopping_cart: @shopping_cart %>
+	</div>
+</div>
+<div id="pageBodySub">
+	<div id="total">
+		<%= render 'shopping_cart_total', user: @user %>
+	</div>
+</div>

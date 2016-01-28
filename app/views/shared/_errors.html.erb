@@ -1,0 +1,10 @@
+<%if obj.errors.present? %>
+	<div id="notice" class="errors">
+		<h3>エラーがあります。</h3>
+		<ul>
+			<% obj.errors.full_messages.each do |msg| %>
+				<li><p><%= msg %></p></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>

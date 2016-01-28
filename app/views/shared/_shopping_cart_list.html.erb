@@ -1,0 +1,26 @@
+<table  class="table_style">
+	<thead>
+		<tr><th class="th_color">商品名</th><th class="th_color">個数</th><th class="th_color">価格</th><th class="th_color">操作</th></tr>
+	</thead>
+
+	<tbody>
+		<% shopping_cart.each do |detail| %>
+			<tr>
+				<td><%= detail.merchandise.merchandise_name %></td>
+				<td>
+					<%= form_tag user_shopping_cart_detail_path(detail), method: :patch, remote: true do |form| %>
+					<%= number_field_tag :quantity, detail.quantity, min: 1, max: 10, step: 1 %>個
+					<%= hidden_field_tag :ajax_hundler, 'edit_quantity' %>
+						<%= submit_tag "変更"%>
+					<% end %>
+				</td>
+				<td><span class="price"><%= detail.sub_total %></span></td>
+				<td>
+					<%= form_tag user_shopping_cart_detail_path(detail) ,method: :delete do %>
+						<%= submit_tag "削除" %>
+					<% end %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

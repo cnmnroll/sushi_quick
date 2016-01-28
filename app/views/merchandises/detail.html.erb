@@ -1,0 +1,63 @@
+<%= render 'shared/flash_notice' %>
+<div id="merchandise_area">
+	<div id="merchandise_image">
+		<%= merchandise_image_tag @merchandise %>
+	</div>
+	<div id="merchandise_detail">
+		<h2><%= @merchandise.merchandise_name %></h2>
+		<p><%= @merchandise.price %>円</p>
+		<p>在庫：<%= @merchandise.stock %></p>
+
+		<% if @merchandise.stock <= 0 %>
+			<p>売り切れです。</p>
+		<% elsif session[:user_id].present? %>			<!--ログイン中かどうか-->
+			<!--真：有効化したボタンを表示-->
+			<%= form_tag user_shopping_cart_detail_index_path, method: :post, class: 'form' do %>
+				<p>
+					<%= label_tag :quantity, '数量' %>
+					<%= number_field_tag :quantity, 1, min: 1, max: 10, step: 2, step: 1 %>個
+				</p>
+				<%= hidden_field_tag :id, @merchandise.id %>
+				<%= submit_tag "カートに入れる", class: 'button' %>
+			<% end %>
+		<% else %>
+			<!--偽:無効化したボタンを表示-->
+			<%= button_to "ログイン", :login_user, method: :get, class: 'button' %>
+		<% end %>
+	</div>
+</div>
+<div class="merchandise_list">
+	<h3>これを買った人を以下の商品も購入しています。</h3>
+	<% @relevances.each do |relevance| %>
+		<div class="merchandise_card">
+			<%= merchandise_image_tag relevance.merchandise %>
+			<span class="merchandise_title"><%= relevance.merchandise.merchandise_name %></span>
+			<% if session[:user_id].present? %>			<!--ログイン中かどうか-->
+				<!--真：有効化したボタンを表示-->
+				<%= form_tag user_shopping_cart_detail_index_path, method: :post, class: 'form' do %>
+					<% if relevance.merchandise.stock <= 0 %>
+						<%= submit_tag "売り切れ", disabled: true, class: 'button' %>
+					<% else %>
+						<span>
+							<%= label_tag :quantity, '数量' %>
+							<%= number_field_tag :quantity, 1, min: 1, max: 10, step: 2, step: 1 %>個
+						</span>
+						<%= hidden_field_tag :id, relevance.merchandise.id %>
+						<%= submit_tag "カートに入れる", class: 'button' %>
+					<% end %>
+				<% end %>
+				<%= button_to '編集', edit_admin_manager_merchandise_path(relevance.merchandise), method: :get, class: 'button_admin' if !current_user.nil? && current_user.user_status == 2%>
+			<% else %>
+				<!--偽:無効化したボタンを表示-->
+				<%= button_to "ログイン", :login_user, method: :get, class: 'button' %>
+			<% end %>
+		</div>
+	<% end %>
+</div>
+<div id="review_area">
+	<% if current_user %>
+		<%= render 'review_form', merchandise: @merchandise %>
+	<% end %>
+	<%= render 'review_list', reviews: @reviews %>
+	<%= will_paginate @reviews %>
+</div>

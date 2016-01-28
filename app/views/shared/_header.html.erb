@@ -1,0 +1,34 @@
+<table border="0">
+	<tr>
+		<td><%= link_to image_tag("sushi.png", :size => '69x37', alt: "sushi", align: "top"), :root %></td>
+		<td>
+			<table border="0">
+				<tr><td>
+						<% unless current_user then %>
+							<%= link_to 'ログイン', :login_user %> <br>
+						<% else %>
+							<%= link_to current_user.user_name, current_user %> | <%= link_to 'ロクアウト', :session, method: :delete, data: {confirm: "ログアウトしますか"} %>
+						<% end %>
+				</td></tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<ul id="gNavi">
+	<li><%= link_to_unless_current "HOME", :root %></li>
+	<li><%= link_to_unless_current "メニュー", search_merchandises_path %></li>
+	<% if current_user %>
+		<li><%= link_to_unless_current "カート", user_shopping_cart_detail_index_path %></li>
+		<li><%= link_to_unless_current "注文履歴", user_orders_path, method: :get %></li>
+		<% if current_user.user_status == User.getManagerNumber || current_user.user_status == User.getDeliveryNumber %>
+			<li><%= link_to "配送", admin_deliveryman_orders_path %></li>
+			<% if current_user.user_status == User.getManagerNumber %>
+				<li><%= link_to "商品新規作成", new_admin_manager_merchandise_path %></li>
+				<li><%= link_to '全ユーザ注文履歴', admin_manager_orders_path %></li>
+
+				<li><%= link_to '全商品編集',  edit_select_admin_manager_merchandises_path %></li>
+			<% end %>
+		<% end %>
+	<% end %>
+	<li><%= link_to_unless_current "お問い合わせ", new_contact_path %></li>
+</ul>

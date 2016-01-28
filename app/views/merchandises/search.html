@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+		</div>
+	</div>
+
+	<div id="content">
+		<h1><%= params[:q] %>　の検索結果</h1>			<!--検索ボックスの入力値を取得-->
+		<p>
+			<input type="checkbox" name="group" value="1" checked="checked">分類1
+			<input type="checkbox" name="group" value="2" checked="checked">分類2
+			<input type="checkbox" name="group" value="3" checked="checked">分類3　　
+			<%= submit_tag "絞り込む" %>
+		</p>
+		<table border="1"> <br><br>
+			<tr bgcolor="#CBE9EA">
+				<th>商品名　　</th>
+				<th>単価　　</th>
+				<th>カテゴリ　　</th>
+				<th>詳細　　</th>
+			</tr>
+			<!--使用するデータベース:商品-->
+			<%= @search_list.each do |i| %>			<!--検索条件に合致したものを格納-->
+				<tr>
+					<td><%= i.merchandise_name %></td>		<!--商品テーブルから名前を取得-->
+					<td><%= i.price %></td>
+					<td><%= i.category %></td>
+					<td><%= link_to '詳細', merchandise_path(i) %></td>		<!--各商品の詳細ページ(showアクション)へのリンク-->
+				</tr>
+			<% end %>
+		</table>
+	</div>
+
+	<div id="sidebar">
+	</div>
+
+	<div id="footer">
+	</div>
+</body>

@@ -1,0 +1,15 @@
+<div id="topImage">
+	<%= link_to image_tag("main2.png", class: 'top_image'), :root %>
+	<div class="title">
+		<p>寿司クイックでは新鮮な寿司をなるべく速くお届けします。会員登録がまだお済みで無い方は上記メニューからご登録ください。</p>
+	</div>
+</div>
+
+<div class="merchandise_list">
+	<h2 class="title">おすすめ商品</h2>
+	<%= render 'shared/merchandise_list', merchandises: @merchandises %>
+</div>
+<div class="merchandise_list">
+	<h2 class="title">人気商品</h2>
+	<%= render 'shared/merchandise_list', merchandises: @sales %>
+</div>

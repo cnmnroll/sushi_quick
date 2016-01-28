@@ -1,0 +1,23 @@
+<table class="table_style">
+  <tbody>
+    <tr>
+      <th>氏名</th>
+      <td><%= @user.user_name %></td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td><%= @user.user_address %></td>
+    </tr>
+    <tr>
+      <th>ユーザーID</th>
+      <td><%= @user.user_lo %></td>
+    </tr>
+		<tr>
+			<th>ユーザランク</th>
+			<td><%= UserRank.getUserRankName(@user) %></td>
+		</tr>
+ </tbody>
+</table>
+<div class="button_area">
+  <%= button_to "編集", edit_user_path, method: :get, class: 'button' %>
+</div>

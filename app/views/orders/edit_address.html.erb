@@ -1,0 +1,17 @@
+<%= render 'shared/errors', obj: @user.shopping_cart %>
+<h2>登録済み</h2>
+<%= form_tag confirm_user_orders_path do %>
+	<%= label_tag :address, "住所" %>
+	<%= text_field_tag :address , @user.user_address, readonly: true %>
+	<div class="right">
+		<%= submit_tag "この住所を使う" %>
+	</div>
+<% end %>
+<h2>新しく追加</h2>
+<%= form_tag confirm_user_orders_path do %>
+	<%= label_tag :address, "住所:" %>
+	<%= text_field_tag :address %>
+	<div class="right">
+		<%= submit_tag "この住所を使う" %>
+	</div>
+<% end %>

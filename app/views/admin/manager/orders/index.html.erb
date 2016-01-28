@@ -1,0 +1,52 @@
+<%= render 'shared/flash_alert' %>
+<div id="search_area">
+	<%= form_for :order, url: user_orders_path, method: :get do |form| %>
+		<%= form.label :id, '注文番号' %>
+		<%= form.number_field :id %>
+		<%= form.submit '送信' %>
+	<% end %>
+	<%= form_for :order, url: user_orders_path, method: :get do |form| %>
+		<%= form.label :created_at, '履歴検索' %>
+		<%= raw sprintf(form.date_select(:created_at, use_two_digit_numbers: true, start_year: 2010, end_year: (Time.now.year),include_blank: true, date_separator: '%s'),'年', '月 ') + '日'%>
+		<%= form.submit '送信' %>
+	<% end %>
+</div>
+<div id="errorsArea">
+	<% for order in @orders do%>
+		<div class="order">
+			<table class="table_style">
+				<thead>
+					<tr><th>注文者</th><th>配達先</th><th>注文日付</th><th>ステータス</th><th>操作</th></tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><%= order.user.user_name %></td>
+						<td><%= order.user_address %></td>
+						<td><%= Time.change_time(order.created_at) %></td>
+						<td><%= Order.delivery_status order.delivery_status %></td>
+						<td>
+							<%= button_to "一括キャンセル", delete_order_user_order_path(order), method: :delete %>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="table_style">
+				<thead>
+					<tr><th>商品名</th><th>数量</th><th>操作</th></tr>
+				</thead>
+				<tbody>
+					<% for order_detail in order.order_details do %>
+						<tr>
+							<td><%= order_detail.merchandise.merchandise_name %></td>
+							<td><%= order_detail.quantity %></td>
+							<td>
+								<%= button_to "キャンセル", delete_detail_user_order_order_detail_path(order, order_detail), method: :delete %>
+							</td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	<% end %>
+</div>
+<%= will_paginate @orders %>

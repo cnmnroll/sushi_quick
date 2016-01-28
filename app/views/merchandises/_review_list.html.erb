@@ -1,0 +1,25 @@
+
+<div id="review_list">
+	<h3>口コミ一覧</h3>
+	<% @reviews.each do |review| %>
+	<div class="review_card">
+		<table>
+			<tbody>
+				<tr>
+					<th>投稿者</th>
+					<td><%= review.user.user_name %></td>
+					<th>投稿日</th>
+					<td><%= Time.change_time(review.created_at) %></td>
+				</tr>
+				<tr>
+					<td><%= Review.change_star(review.score) %></td>
+					<td><%= review.title %></td>
+				</tr>
+				<tr>
+					<td><%= review.content %></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<% end %>
+</div>

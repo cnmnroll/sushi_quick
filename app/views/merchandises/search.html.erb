@@ -1,0 +1,36 @@
+<div id="search_area">
+	<%= form_tag search_merchandises_path, method: :get, class: 'form' do %>
+		<% if !current_user.nil? && current_user.user_status == User.getManagerNumber %>
+			<div id="select_display">
+				<%= label_tag 'search[display]', '商品表示状態:' %>
+				<%= radio_button_tag 'search[display]', 0, true %>全て
+				<%= radio_button_tag 'search[display]', true, false %>表示
+				<%= radio_button_tag 'search[display]', false, false %>非表示
+			</div>
+		<% end %>
+		<div id="search_category">
+			<%= label_tag 'search[category]', 'カテゴリ:' %>
+			<%= radio_button_tag 'search[category]', 0, true %>全て
+			<% for category in @categories do %>
+				<%= radio_button_tag 'search[category]', category.id %><%= category.category_name %>
+			<% end %>
+		</div>
+		<div id="sub_category">
+			<%= label_tag 'search[sub_category]', 'サブカテゴリ:' %>
+			<%= collection_check_boxes 'search', 'sub_category', SubCategory.all, :id, :sub_category_name %>
+		</div>
+		<div id="type_status">
+			<%= label_tag 'search[type_status]', 'タイプ:' %>
+			<%= collection_check_boxes 'search', 'type_status', Type.all, :id, :type_name %>
+		</div>
+		<div id="merchandise_search">
+			<%= label_tag :search, "検索:" %>
+			<%= search_field_tag 'search[content]' %>
+		</div>
+		<%= submit_tag '絞り込む' %>
+	<% end %>
+</div>
+<div class="merchandise_list">
+	<%= render 'shared/merchandise_list', merchandises: @merchandises %>
+</div>
+<%= will_paginate @merchandises %>

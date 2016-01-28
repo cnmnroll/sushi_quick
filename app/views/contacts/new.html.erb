@@ -1,0 +1,27 @@
+<%= render 'shared/errors', obj: @contact %>
+<%= form_for @contact, url: contact_path, method: :post do |form| %>
+	<table class="table_style">
+		<caption><h2>問い合わせ</h2></caption>
+		<tbody>
+			<tr>
+				<th><%= form.label :name, '名前' %></th>
+				<td><%= form.text_field :name %></td>
+			</tr>
+			<tr>
+				<th><%= form.label :title, 'タイトル' %></th>
+				<td><%= form.text_field :title %></td>
+			</tr>
+			<tr>
+				<th><%= form.label :mail, 'メールアドレス' %></th>
+				<td><%= form.text_field :mail %></td>
+			</tr>
+			<tr>
+				<th><%= form.label :contents, '問い合わせ内容' %></th>
+				<td><%= form.text_area :contents, size: "100%x20%"%></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="button_area">
+		<%= form.submit '送信', class: 'button' %>
+	</div>
+<% end %>

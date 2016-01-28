@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Merchandise name:</strong>
+  <%= @merchandise.merchandise_name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @merchandise.price %>
+</p>
+
+<p>
+  <strong>Stock:</strong>
+  <%= @merchandise.stock %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @merchandise.category %>
+</p>
+
+<p>
+  <strong>Merchandise status:</strong>
+  <%= @merchandise.merchandise_status %>
+</p>
+
+<p>
+  <strong>Type status:</strong>
+  <%= @merchandise.type_status %>
+</p>
+
+<%= link_to 'Edit', edit_merchandise_path(@merchandise) %> |
+<%= link_to 'Back', merchandises_path %>

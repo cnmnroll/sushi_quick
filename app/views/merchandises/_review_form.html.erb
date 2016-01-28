@@ -1,0 +1,24 @@
+<div id="review_post">
+	<%= form_for :review, url: create_review_merchandise_path(@merchandise), method: :post, html: {class: 'form'} do |form| %>
+	<table class="table_style">
+		<caption><h3>口コミ投稿</h3></caption>
+		<tbody>
+			<tr>
+				<th><%= form.label :score, '点数' %></th>
+				<td><%= form.select :score, [['★', 1], ['★★', 2], ['★★★', 3], ['★★★★', 4], ['★★★★★', 5]] %></td>
+			</tr>
+			<tr>
+				<th><%= form.label :title, 'タイトル' %></th>
+				<td><%= form.text_field :title %></td>
+			</tr>
+			<tr>
+				<th><%= form.label :content, '内容' %></th>
+				<td><%= form.text_area :content, size: '100%x10%' %></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class='button_area'>
+		<%= form.submit '投稿', class: 'button' %>
+	</div>
+	<% end %>
+</div>

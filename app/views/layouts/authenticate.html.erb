@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sushi3</title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+		<META http-equiv="refresh" content="5; url=<%= login_user_path %>"> 
+	</head>
+	<body>
+		<div id="page">
+			
+			<div id="pageBody">
+				<%= yield %>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<%= form_for @merchandise, url:	admin_manager_merchandises_path do |form| %>
+	<table class="table_style">
+		<tr>
+			<th><%= form.label :merchandise_name, "商品名" %></th>
+			<td><%= form.text_field :merchandise_name %></td>
+		</tr>
+		<tr>
+			<th><%= form.label :merchandise_name, "値段" %></th>
+			<td><%= form.number_field :price, min: 0 %></td>
+		</tr>
+		<tr>
+			<th><%= form.label :merchandise_name, "在庫" %></th>
+			<td><%= form.number_field :stock, min: 0 %></td>
+		</tr>
+		<tr>
+			<th><%= form.label :merchandise_name, "カテゴリ" %></th>
+			<td><%= form.number_field :category, min: 0 %></td>
+		</tr>
+		<tr>
+			<th><%= form.label :merchandise_name, "サブカテゴリ" %></th>
+			<td><%= form.number_field :sub_category, min: 0 %></td>
+		</tr>
+		<tr>
+			<th><%= form.label :merchandise_name, "種類" %></th>
+			<td><%= form.number_field :type_status, min: 0 %></td>
+		</tr>
+		<tr>
+			<th><%= form.label :uploaded_image, "商品画像" %></th>
+			<td><%= form.file_field :uploaded_image %></td>
+		</tr>
+	</table>
+	<%= form.submit "追加" %>
+<% end %>
+

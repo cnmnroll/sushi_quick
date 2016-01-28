@@ -1,0 +1,19 @@
+<div id="pageBodyMain">
+	<div id="shoppingCartList">
+		<%= render "shared/shopping_cart_list", shopping_cart: @shopping_cart %>
+	</div>
+</div>
+
+<div id="pageBodySub">
+	<div id="total">
+		<p>合計:<%= ShoppingCart.getTotal(@shopping_cart) %></p>
+		<%= form_tag confirm_user_orders_path, class: 'form' do %>
+			<% if @count == 0 %>
+				<%= submit_tag "レジへ進む", disabled: true, class: 'button' %>
+			<% else %>
+				<%= submit_tag "レジへ進む", class: 'button' %>
+			<% end %>
+		<% end %>
+	</div>
+</div>
+

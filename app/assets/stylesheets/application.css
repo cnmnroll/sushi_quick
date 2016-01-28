@@ -1,0 +1,246 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+/* ページ全体 */
+
+html {
+
+}
+
+body {
+	
+	/*background-color: #000000;*/
+	color: #555555;
+	height: 100%;
+	width: 100%;
+	margin: 0%;
+}
+
+.top_image {
+	width: 100%;
+}
+#page {
+	width: 1000px;
+	height: 100%;
+	margin: 0 auto;
+	/*background-color: #ff0000;*/
+}
+
+#pageHead {
+	/*border-bottom: 1px #CCCCCC solid;*/
+	margin-bottom: 1%;
+}
+#pageBody {
+
+	height: 100%;
+	width: 100%;
+	/*background-color: #00ff00;*/
+}
+#pageBodyMain {
+	width: 70%;
+	height: 100%;
+	/*background-color: #ffff00;*/
+	float: left;
+}
+
+#product_info {
+	display: inline-block;
+	border: 1px solid #000000;
+	width: 100%;
+
+}
+
+#pageBodySub {
+	margin-left: 1%;
+	border: 1px #CCCCCC solid; 
+	box-sizing: border-box;
+	width: 29%;
+	float: right;
+	/*background-color: #0000ff;*/
+}
+
+.center {
+	text-align: center;
+}
+
+.block {
+	width: auto;
+	margin-bottom: 1%;
+}
+
+.table_style {
+	width: 100%;
+	border-collapse: collapse;
+	/*border: 1px #CCCCCC solid; */
+}
+
+.table_style thead th{
+	text-align: left;
+}
+
+.table_style th,
+.table_style td {
+	/*border: 1px #CCCCCC solid; */
+	color: #555555;
+	border-bottom: 1px solid #cccccc;
+	padding: 5px 10px;
+	text-align: left;
+}
+
+#pageFoot {
+	clear: both;
+}
+#pageFoot:after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+
+
+.right {
+	text-align: right;
+}
+
+.center {
+	text-align: center;
+}
+#gNavi {
+	/*background-color: ;*/
+	width: 100%;
+}
+
+#gNavi {
+	margin-left: 0px;
+	color: white;
+	width: 100%;
+	margin: 0px;
+	padding: 0;
+	/*height: 40px;*/
+	background-color: black;
+}
+
+#gNavi ul{
+	/*margin-left: 0px;*/
+	display: block;
+	padding-left: 0px;
+	letter-spacing: -.40em;
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	margin: 0px;
+}
+
+#gNavi li a {/*訪問後のリンク*/
+    color: white;
+    display: block;
+    text-decoration:none;
+    width: auto;
+    /*padding-top: 8px;*/
+	/*position: absolute;*/
+	/*top: 10px;*/
+	padding: 10px 0px;
+	/*margin: 5px;*/
+    height: 100%;
+    /*height: 100%;*/
+  /*  background-color: #440000;*/
+	/*vertical-align: middle;*/
+	/*background-color: red;*/
+}
+
+
+#gNavi li {
+	letter-spacing: normal;
+/*text-indent: 10px;  */
+	padding-left: 5px; 
+	display: inline-block;
+	box-sizing: border-box;
+	/*padding-left: 5px;*/
+	height: 100%;
+
+	background-color: #000000;
+	/*width: 20%;*/
+}
+
+#gNavi a:hover {
+	background-color: rgba(180, 180, 180, 0.6);
+}
+
+
+.errors p {
+	color: red;
+}
+
+#notice h3 {
+	margin: 1%;
+}
+
+#notice {
+	border: 1px solid #cccccc;
+	padding: 0;
+	margin-bottom: 1%;
+	background-color: #CBE9EA;
+}
+
+#notice p {
+	margin: 1%;
+}
+
+.merchandise_list .button_to {
+  display:inline-block;
+  margin: 1px;
+  padding: 0;
+}
+
+.merchandise_list p {
+	display:inline-block;
+	margin: 1px;
+}
+
+.merchandise_list h2.title {
+	border-bottom: 1px solid #cccccc;
+	
+	margin: 3px;
+	padding: 0px;
+}
+
+#topImage {
+	position: relative;
+}
+
+#topImage .title{
+	width:  100%;
+	background-color: rgba(180, 180, 180, 0.6);
+	position: absolute;
+	padding: 4px;
+	bottom: 5px;
+	color: black;
+}
+
+.merchandise_list:after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+#orders_area:after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+div.pagination {
+	text-align: center;
+	margin: 1%;
+}
+
+
+div.field_with_errors {
+	color: red;
+}
+
+.merchandise_title {
+	font-size: 20px;
+}

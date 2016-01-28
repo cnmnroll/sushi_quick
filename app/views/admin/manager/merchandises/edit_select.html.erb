@@ -1,0 +1,38 @@
+<%= form_tag update_select_admin_manager_merchandises_path, method: :patch do %>
+	<table class="table_style">
+		<tr>
+			<th><%= label_tag :merchandise_id, "編集商品" %></th>
+			<td><%= collection_select :merchandise, :merchandise_id, Merchandise.all, :id, :merchandise_name %>
+		</tr>
+		<tr>
+			<th><%= label_tag :merchandise_name, "商品名" %></th>
+			<td><%= text_field_tag 'merchandise[merchandise_name]' %></td>
+		</tr>
+		<tr>
+			<th><%= label_tag :merchandise_name, "値段" %></th>
+			<td><%= number_field_tag 'merchandise[price]', min: 0 %></td>
+		</tr>
+		<tr>
+			<th><%= label_tag :merchandise_name, "在庫" %></th>
+			<td><%= number_field_tag 'merchandise[stock]', min: 0 %></td>
+		</tr>
+		<tr>
+			<th><%= label_tag :merchandise_name, "カテゴリ" %></th>
+			<td><%= number_field_tag 'merchandise[category]', min: 0 %></td>
+		</tr>
+		<tr>
+			<th><%= label_tag :merchandise_name, "サブカテゴリ" %></th>
+			<td><%= number_field_tag 'merchandise[sub_category]', min: 0 %></td>
+		</tr>
+		<tr>
+			<th><%= label_tag :merchandise_name, "種類" %></th>
+			<td><%= number_field_tag 'merchandise[type_status]', min: 0 %></td>
+		</tr>
+		<tr>
+			<th><%= label_tag :uploaded_image, "商品画像" %></th>
+			<td><%= text_field_tag :uploaded_image %></td>
+		</tr>
+	</table>
+	<%= submit_tag "追加" %>
+<% end %>
+

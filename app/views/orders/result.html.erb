@@ -1,0 +1,39 @@
+<div class="dliveryAdress">
+	<table class="table_style">
+		<thead>
+			<tr>
+				<th>注文番号</th><th>住所</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr><td><%= @order.id %><td></tr>
+			<tr><td><%= @order.user_address %></td></tr>
+		</tbody>
+	</table>
+</div>
+<table class="table_style">
+	<thead>
+		<tr><th>商品名</th><th>単価</th><th>個数</th><th>小計</th></tr>
+	</thead>
+	<tbody> <!-- shopping_cart_list:カート明細一覧 -->
+		<% @order_details.each do |detail| %>
+			<tr>
+				<td><%= detail.merchandise.merchandise_name %></td>
+				<td><%= detail.merchandise.price %></td>
+				<td><%= detail.quantity %></td>
+				<td><%= detail.sub_total %></td>
+			</tr>
+		<% end %>
+		<tr>
+			<td colspan="4"><div class="right">合計:<span class="price"><%= @total %></span>円</span></div></td>
+		</tr>
+		<tr>
+			<td colspan="4"><div class="right">会員グレード割引率:<span class="right discount"><%= UserRank.getDiscount(@puser_rank_id) %>%</span></div></td>
+		</tr>
+		<tr>
+			<td colspan="4"><div class="right">最終合計:<span class="right price"><%= @order.total %></span>円</div></td>
+		</tr>
+	</tbody>
+</table>
+
+

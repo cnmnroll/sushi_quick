@@ -1,0 +1,18 @@
+<%= render 'shared/flash_alert' %>
+<div id="search_area">
+
+	<%= form_for :order, url: user_orders_path, method: :get do |form| %>
+		<%= form.label :id, '注文番号' %>
+		<%= form.number_field :id %>
+		<%= form.submit '送信' %>
+	<% end %>
+	<%= form_for :order, url: user_orders_path, method: :get do |form| %>
+		<%= form.label :created_at, '履歴検索' %>
+		<%= raw sprintf(form.date_select(:created_at, use_two_digit_numbers: true, start_year: 2010, end_year: (Time.now.year),include_blank: true, date_separator: '%s'),'年', '月 ') + '日'%>
+		<%= form.submit '送信' %>
+	<% end %>
+</div>
+<div id="orders_area">
+	<%= render 'orders_area', orders: @orders %>
+</div>
+<%= will_paginate @orders %>

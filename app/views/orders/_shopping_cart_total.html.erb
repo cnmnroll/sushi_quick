@@ -1,0 +1,6 @@
+<p>合計:<span class="price"><%= user.shopping_cart.total%></span>円</p>
+<p>会員グレード割引率:<span class="discount"><%= UserRank.getDiscount(user.user_rank_id) %></span>%</p>
+<p>最終合計:<span class="price"><%= UserRank.getFinalTotal(user) %></span>円</p>
+<%= form_tag user_orders_path, class: 'form' do %>
+	<%= submit_tag "購入", class: 'button' %>
+<% end %>

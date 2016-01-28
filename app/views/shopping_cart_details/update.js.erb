@@ -1,0 +1,2 @@
+$('#shoppingCartList').html('<%= j(render("shared/shopping_cart_list", shopping_cart: @shopping_cart)) %>');
+$('#total p').html('<p>合計:<%= ShoppingCart.getTotal(@shopping_cart) %></p>');

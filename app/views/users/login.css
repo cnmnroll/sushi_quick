@@ -1,0 +1,78 @@
+
+
+body {
+  background: #e9e9e9;
+  color: #5e5e5e;
+}
+
+.form_wrapper {
+  background: #fafafa;
+  margin: 60px auto;
+  padding: 0 30px;
+  max-width: 370px;
+}
+
+h1 {
+  text-align: center;
+  padding: 30px 0;    /*上下30 左右0 */
+}
+
+form {
+  /*background:red; */
+  padding: 0 1.5em;
+}
+
+.data_input {
+  margin-bottom: 0.75em;
+  width: 100%;
+}
+
+.data_input input {
+  background: #fafafa;
+  border: none;
+  border-bottom: 2px solid #e9e9e9;
+  color: #666;
+  font-size: 16px; /* == 1em */
+  height: 50px;
+  width: 100%;
+}
+
+.data_input input:focus {
+  border-bottom: 2px solid #c0c0c0;
+  outline: none;
+}
+
+.login_panel {
+  margin: 2em 0 0;
+  width: 100%;
+}
+
+.login_panel .button {
+  background: #89CCEA;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-size: 20px;
+  text-align: center;  
+  width: 100%;
+}
+
+.button:hover {
+  background: #4EA0E5;
+}
+
+.login_footer {
+  font-size: 16px;
+  padding: 32px 0;
+  text-align: center;
+}
+
+.login_footer a {
+  color: #8c8c8c;
+  text-decoration: none;
+}
+
+.login_footer a:hover {
+  border-bottom: 1px dotted #8c8c8c;
+}

@@ -1,0 +1,2 @@
+$('#shoppingCartList').html('<%= j(render("orders/shopping_cart_list", shopping_cart: @shopping_cart)) %>');
+$('#total').html("<%= j(render('orders/shopping_cart_total', user: @user)) %>");

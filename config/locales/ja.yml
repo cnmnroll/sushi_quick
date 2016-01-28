@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    models:
+      merchandise: 商品
+    attributes:
+      merchansise:
+        merchandise_name: 商品名
+        name: 商品名
+        stock: 在庫
+        price: 値段
+      user:
+        user_name: ユーザ名
+        user_address: 住所
+        user_lo: ユーザID
+        password: ユーザパスワード
+        password_confirmation: パスワード確認
+      order:
+        created_at: 履歴検索
+    errors:
+      messages:
+        too_big_image: が大きすぎます（最大64KB）。
+        invalid_image: の形式が違います（JPEG、GIF、PNGのどれかにしてください）。
+  will_paginate:
+    previous_label: "前"
+    next_label: "次"
